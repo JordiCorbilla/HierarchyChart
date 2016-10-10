@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <NDepend AppName="New Project" Platform="DotNet">
   <OutputDir KeepXmlFiles="False">C:\Users\thund\Source\Repos\HierarchyChart\NDependOut</OutputDir>
-  <Assemblies />
-  <FrameworkAssemblies />
+  <Assemblies>
+    <Name>Thundax.HierarchyChart</Name>
+  </Assemblies>
+  <FrameworkAssemblies>
+    <Name>mscorlib</Name>
+  </FrameworkAssemblies>
   <Dirs>
     <Dir>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319</Dir>
     <Dir>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\WPF</Dir>
-    <Dir>C:\Users\thund\Source\Repos\HierarchyChart</Dir>
-    <Dir>C:\Users\thund\Source\Repos\HierarchyChart\Thundax.HierarchyChart\Thundax.HierarchyChart\bin\Debug</Dir>
+    <Dir>C:\Users\thund\Source\Repos\HierarchyChart\Thundax.HierarchyChart\bin\Debug</Dir>
   </Dirs>
   <MergeCodeGeneratedByCompiler>True</MergeCodeGeneratedByCompiler>
   <Report Kind="0" SectionsEnabled="45055" XslPath="" Flags="261120" />

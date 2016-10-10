@@ -20,8 +20,8 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-using System;
 using Thundax.HierarchyChart.contracts;
+using Thundax.HierarchyChart.extensions;
 
 namespace Thundax.HierarchyChart
 {
@@ -59,25 +59,6 @@ namespace Thundax.HierarchyChart
                 spanDepartment = string.Format("<span class=\\\"spanDepartment\\\">{0}</span>", name);
             return string.Format("\"id\" : \"{0}\", \"name\": \"{1}\", \"title\": \"{2}\", \"ismanager\": \"{3}\"",
                 Id, spanDepartment, "", IsManager);
-        }
-    }
-
-    public static class StringExtensionMethods
-    {
-        public static string ReplaceFirst(this string text, string search, string replace)
-        {
-            int pos = text.IndexOf(search, StringComparison.Ordinal);
-            if (pos < 0)
-                return text;
-            return string.Format("{0}{1}{2}", text.Substring(0, pos),replace,text.Substring(pos + search.Length));
-        }
-
-        public static string ReplaceLast(this string text, string search, string replace)
-        {
-            int place = text.LastIndexOf(search, StringComparison.Ordinal);
-            if (place == -1)
-                return text;
-            return text.Remove(place, search.Length).Insert(place, replace);
         }
     }
 }
