@@ -30,6 +30,7 @@ namespace Thundax.HierarchyChart
         public string Department { get; set; }
         public string Location { get; set; }
         public int Id { get; set; }
+        public string EmployeeId { get; set; }
         public string DisplayName { get; set; }
         public string Title { get; set; }
         public int ManagerId { get; set; }
@@ -51,8 +52,8 @@ namespace Thundax.HierarchyChart
                 string locationFormat = string.Format("<span class=\\\"badgeLocation{0}\\\">{1}</span>",
                     Location.Replace(" ", "").Trim().ToLower(), Location);
                 return string.Format(
-                        "\"id\" : \"{0}\", \"name\": \"{1}\", \"title\": \"<b>{2}</b><br>{3}\", \"ismanager\": \"{4}\"",
-                        Id, name, newTitle, locationFormat, IsManager); //<i>{3}</i><br>Department
+                        "\"id\" : \"{0}\", \"name\": \"{1}\", \"title\": \"<b>{2}</b><br>{3}\", \"ismanager\": \"{4}\", \"employeeid\": \"{5}\"",
+                        Id, name, newTitle, locationFormat, IsManager, EmployeeId); //<i>{3}</i><br>Department
             }
             string spanDepartment = name;
             if (!name.Contains("<br>"))

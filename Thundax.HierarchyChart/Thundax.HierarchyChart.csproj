@@ -52,6 +52,7 @@
     <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tree.cs" />
+    <Compile Include="TreeJson.cs" />
     <Compile Include="UserNode.cs" />
   </ItemGroup>
   <ItemGroup>

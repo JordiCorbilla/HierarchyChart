@@ -27,6 +27,7 @@ namespace Thundax.HierarchyChart.contracts
         string Department { get; set; }
         string Location { get; set; }
         int Id { get; set; }
+        string EmployeeId { get; set; }
         string DisplayName { get; set; }
         string Title { get; set; }
         int ManagerId { get; set; }

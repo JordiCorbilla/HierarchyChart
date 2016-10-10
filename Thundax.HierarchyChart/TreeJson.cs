@@ -1,4 +1,4 @@
-//The MIT License (MIT)
+﻿//The MIT License (MIT)
 
 //Copyright (c) 2016 Jordi Corbilla
 
@@ -21,13 +21,33 @@
 //THE SOFTWARE.
 
 using System.Collections.ObjectModel;
+using System.Linq;
+using Thundax.HierarchyChart.contracts;
 
-namespace Thundax.HierarchyChart.contracts
+namespace Thundax.HierarchyChart
 {
-    public interface INode<T>
+    public static class TreeJson
     {
-        T Data { get; set; }
-        Collection<INode<T>> Children { get; }
-        string GetJson();
+        public static Tree<IUserNode> Build(Collection<IUserNode> nodes)
+        {
+            IUserNode root = nodes.FirstOrDefault(user => user.ManagerId == -1);
+            Tree<IUserNode> tree = new Tree<IUserNode>(root);
+            if (root != null) BuildRecursively(tree.Root, nodes, root.Id);
+            return tree;
+        }
+
+        public static void BuildRecursively(INode<IUserNode> root, Collection<IUserNode> nodes, int managerId)
+        {
+            var children = from node in nodes
+                           where node.ManagerId == managerId
+                           select node;
+
+            foreach (IUserNode child in children)
+            {
+                INode<IUserNode> p = new Node<IUserNode>(child);
+                root.Children.Add(p);
+                BuildRecursively(p, nodes, child.Id);
+            }
+        }
     }
 }

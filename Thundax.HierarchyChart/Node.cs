@@ -20,7 +20,7 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Thundax.HierarchyChart.contracts;
 
 namespace Thundax.HierarchyChart
@@ -28,23 +28,18 @@ namespace Thundax.HierarchyChart
     public class Node<T> : INode<T>
     {
         private T _data;
-        private List<INode<T>> _children = new List<INode<T>>();
+        private Collection<INode<T>> _children = new Collection<INode<T>>();
 
         public Node(T data)
         {
             _data = data;
         }
 
-        public List<INode<T>> Children
+        public Collection<INode<T>> Children
         {
             get
             {
                 return _children;
-            }
-
-            set
-            {
-                _children = value;
             }
         }
 
