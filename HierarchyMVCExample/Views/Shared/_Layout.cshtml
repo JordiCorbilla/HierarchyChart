@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Hierarchy Chart", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Hierarchy Chart", "Index", "Home", new { area = "" }, new { @class = "navbar-brand",   onclick="showPageLoadingSpinner()" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -32,9 +32,26 @@
             <p>&copy; @DateTime.Now.Year - Jordi Corbilla <a href="https://github.com/JordiCorbilla/HierarchyChart">github.com/JordiCorbilla/HierarchyChart</a></p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div id="ajaxLoaderDiv" style="position:fixed; top:40%; left:45%; z-index:1234; display:none;">
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script type="text/javascript">
+    function showPageLoadingSpinner() {
+        $('#ajaxLoaderDiv').show();
+        $('#ajaxLoaderDiv').append(
+                   '<img src="@Url.Content("~/Content/Images/ajax-loader.gif")" alt="Loading..."class="ajax-loader" />'
+        );
+    }
+
+    function hidePageLoadingSpinner() {
+        setTimeout(function () {
+            $('.ajax-loader').remove();
+            $('#ajaxLoaderDiv').hide();
+        }, 20000);
+    }
+
+</script>

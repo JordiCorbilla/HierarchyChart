@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading;
 
 namespace HierarchyMVCExample.Controllers
 {
@@ -10,6 +11,7 @@ namespace HierarchyMVCExample.Controllers
     {
         public ActionResult Index()
         {
+            Thread.Sleep(5000);
             return View();
         }
 
