@@ -50,7 +50,7 @@ namespace Thundax.HierarchyChart
             if (!IsDepartment)
             {
                 string locationFormat = string.Format("<span class=\\\"badgeLocation{0}\\\">{1}</span>",
-                    Location.Replace(" ", "").Trim().ToLower(), Location);
+                    Location.Replace(" ", "").Trim().ToLower(CultureInfo.CurrentCulture), Location);
                 return string.Format(
                         "\"id\" : \"{0}\", \"name\": \"{1}\", \"title\": \"<b>{2}</b><br>{3}\", \"ismanager\": \"{4}\", \"employeeid\": \"{5}\"",
                         Id, name, newTitle, locationFormat, IsManager, EmployeeId); //<i>{3}</i><br>Department
